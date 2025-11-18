@@ -1,0 +1,5 @@
+Centro Norte;Puerto Montt;1500
+Centro Sur;Chiloé;900
+AquaFjord;Aysén;2300
+BlueSalmon;Punta Arenas;1800
+PacificFarm;Valdivia;700
