@@ -1,30 +1,35 @@
 package model;
 
 /**
- * Clase que representa un centro de cultivo.
- * Contiene el nombre, ubicación y producción anual.
+ * Clase principal del dominio.
+ * Representa un Centro de Cultivo perteneciente a la empresa Salmontt.
+ *
+ * Está compuesta por:
+ * - Direccion
+ * - Encargado
  */
 public class CentroCultivo {
 
-    // Atributos que describen el centro
     private String nombre;
-    private String ubicacion;
+    private String ciudad;
     private int produccion;
+    private Direccion direccion;   // Composición
+    private Encargado encargado;   // Composición
 
     /**
-     * Constructor que recibe todos los datos del centro.
-     *
-     * @param nombre     nombre del centro
-     * @param ubicacion  ubicación del centro
-     * @param produccion producción en toneladas
+     * Constructor principal con composición incluida.
      */
-    public CentroCultivo(String nombre, String ubicacion, int produccion) {
+    public CentroCultivo(String nombre, String ciudad, int produccion,
+                         Direccion direccion, Encargado encargado) {
+
         this.nombre = nombre;
-        this.ubicacion = ubicacion;
+        this.ciudad = ciudad;
         this.produccion = produccion;
+        this.direccion = direccion;
+        this.encargado = encargado;
     }
 
-    // Métodos getter y setter para acceder y modificar los datos
+    // ---------------- GETTERS & SETTERS ----------------
 
     public String getNombre() {
         return nombre;
@@ -34,12 +39,12 @@ public class CentroCultivo {
         this.nombre = nombre;
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public int getProduccion() {
@@ -50,16 +55,32 @@ public class CentroCultivo {
         this.produccion = produccion;
     }
 
-    /**
-     * Método toString para mostrar el contenido del objeto de forma legible.
-     */
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+
+    public Encargado getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(Encargado encargado) {
+        this.encargado = encargado;
+    }
+
+    // ---------------- TO STRING ----------------
+
     @Override
     public String toString() {
-        return "CentroCultivo{" +
-                "nombre='" + nombre + '\'' +
-                ", ubicacion='" + ubicacion + '\'' +
-                ", produccion=" + produccion +
-                '}';
+        return "\n=== Centro de Cultivo ===" +
+                "\nNombre: " + nombre +
+                "\nCiudad: " + ciudad +
+                "\nProducción: " + produccion +
+                "\nDirección: " + direccion +
+                "\nEncargado: " + encargado;
     }
 }
 
