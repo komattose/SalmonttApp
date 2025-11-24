@@ -119,7 +119,7 @@ resources/
 
 Clona el repositorio desde GitHub:
 
-git clone https://github.com/komattose/salmontt-colecciones.git
+git clone https://github.com/komattose/SalmonttApp.git
 
 
 Luego:
@@ -182,7 +182,7 @@ Producción mínima: 1500
 📦 Repositorio y entrega
 
 Repositorio GitHub:
-https://github.com/komattose/salmontt-colecciones
+https://github.com/komattose/SalmonttApp
 
 Fecha de entrega: 24/11/2025
 
