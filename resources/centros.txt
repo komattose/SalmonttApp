@@ -1,5 +1,0 @@
-Centro Norte;Puerto Montt;1500;Av. Los Lagos 123;Los Lagos;Juan Pérez
-Centro Sur;Chiloé;900;Calle Austral 45;Los Lagos;María González
-AquaFjord;Aysén;2300;Ruta 7 Km 12;Aysén;Carlos Muñoz
-BlueSalmon;Punta Arenas;1800;Av. Magallanes 430;Magallanes;Felipe Silva
-PacificFarm;Valdivia;700;Calle Río Calle-Calle 320;Los Ríos;Lucía Herrera
