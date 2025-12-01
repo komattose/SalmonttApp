@@ -1,99 +1,93 @@
-# 🧠 Evaluación – Desarrollo Orientado a Objetos I
+🧠 Evaluación Final Transversal – Desarrollo Orientado a Objetos I
+👨‍💻 Autor del proyecto
 
----
+Nombre completo: Martín Belaunde
+Carrera: Analista Programador Computacional
+Sede: Duoc UC – Online
 
-## 👨‍💻 Autor del proyecto
+🧾 Descripción general del sistema
 
-**Nombre completo:** Martín Belaunde  
-**Carrera:** Analista Programador Computacional  
-**Sede:** Duoc UC – Online
+El objetivo es construir un sistema en Java capaz de:
 
----
+Leer datos externos desde un archivo .txt
 
-## 🧾 Descripción general del sistema
+Crear objetos a partir de esos datos
 
-El objetivo de esta semana es **implementar una jerarquía de clases orientada a objetos** dentro del proyecto **SalmonttApp**, reforzando los principios de **herencia**, **reutilización de código** y **organización modular**.
+Almacenarlos en una colección dinámica (ArrayList)
 
-Para ello, se modelan las **unidades operativas de la empresa salmonera Salmontt**, creando una estructura jerárquica que agrupa las características comunes y específicas de los distintos tipos de unidades:
-- **UnidadOperativa** (superclase)
-- **CentroCultivo** (subclase)
-- **PlantaProceso** (subclase)
+Recorrer e imprimir el contenido de dicha colección
 
----
+Aplicar filtros sobre los datos cargados
 
-## 🧩 Estructura general del proyecto
+Organizar el código en paquetes según su responsabilidad
 
-```text
+El contexto de trabajo corresponde a la empresa salmonera “Salmontt”, donde se manejan distintos Centros de Cultivo.
+El proyecto aplica principios fundamentales de POO, como encapsulamiento, modularidad y estructuración por paquetes, dando paso a un sistema ordenado, mantenible y escalable.
+
+##🧩 Estructura general del proyecto
+```
 src/
 ├── model/
-│   ├── UnidadOperativa.java     # Superclase: define atributos comunes (nombre, comuna)
-│   ├── CentroCultivo.java       # Subclase: añade toneladasProduccion
-│   └── PlantaProceso.java       # Subclase: añade capacidadProceso
+│   └── CentroCultivo.java       # Clase que modela un centro de cultivo
 │
 ├── data/
-│   └── GestorUnidades.java      # Clase que crea instancias de prueba
+│   └── GestorDatos.java         # Clase encargada de leer el archivo y generar la colección
 │
 └── ui/
-    └── Main.java                # Clase principal que ejecuta el programa
+    └── Main.java                # Clase principal: recorrido y filtrado de datos
 
+resources/
+└── centros.txt                  # Archivo con datos separados por punto y coma
 ```
-🧠 Descripción de las clases
+⚙️ Instrucciones para clonar y ejecutar el proyecto
 
-UnidadOperativa:
-Superclase que representa una unidad general con los atributos nombre y comuna.
-Incluye constructor, métodos getters/setters y un toString() básico.
+Clona el repositorio desde GitHub:
 
-CentroCultivo:
-Hereda de UnidadOperativa y agrega el atributo toneladasProduccion.
-Sobrescribe toString() para mostrar toda su información.
-
-PlantaProceso:
-Hereda de UnidadOperativa y agrega el atributo capacidadProceso.
-También sobrescribe toString() para mostrar su información específica.
-
-GestorUnidades:
-Crea instancias de prueba de ambas subclases y devuelve un arreglo con los objetos.
-
-Main:
-Llama al método del gestor para obtener las unidades y las muestra por consola.
-
-⚙️ Instrucciones para ejecutar el programa
-
-Clonar el repositorio desde GitHub:
-
-git clone https://github.com/komattose/Salmontt.git
+git clone https://github.com/komattose/salmontt-colecciones.git
 
 
-Abrir el proyecto en IntelliJ IDEA (o cualquier otro IDE compatible con Java).
+Luego:
 
-Verificar la estructura de paquetes:
+Abre el proyecto en IntelliJ IDEA.
 
-model/ → contiene las clases de la jerarquía.
+Verifica que las carpetas estén configuradas como:
 
-data/ → contiene la clase GestorUnidades.
+src/ → Sources Root
 
-ui/ → contiene la clase Main.
+resources/ → Resources Root
 
-Ejecutar el programa:
+Comprueba que centros.txt esté dentro de la carpeta resources.
 
-Abre la clase Main.java en el paquete ui.
+Ejecuta el archivo:
 
-Ejecuta con el botón ▶️ o desde la consola del IDE.
+ui/Main.java
 
-Observar la salida en consola:
-El programa debe mostrar las unidades operativas creadas por el gestor, similar a lo siguiente:
 
-=== Unidades Operativas de Salmontt ===
+Observa la salida en la consola, donde se visualizarán:
 
-Centro de Cultivo {nombre='Centro Chinquihue', comuna='Puerto Montt', toneladasProduccion=850.5}
-Centro de Cultivo {nombre='Centro Quellón Norte', comuna='Quellón', toneladasProduccion=920.7}
-Planta de Proceso {nombre='Planta Sur', comuna='Puerto Varas', capacidadProceso=120 toneladas/día}
-Planta de Proceso {nombre='Planta Norte', comuna='Calbuco', capacidadProceso=150 toneladas/día}
+Todos los centros de cultivo cargados
 
-=== Fin de la demostración ===
+Los centros filtrados con producción mayor a 1000
 
+💻 Ejemplo de salida en consola
+```
+=== LISTA COMPLETA DE CENTROS ===
+CentroCultivo{nombre='Centro Norte', ubicacion='Puerto Montt', produccion=1500}
+CentroCultivo{nombre='Centro Sur', ubicacion='Chiloé', produccion=900}
+CentroCultivo{nombre='AquaFjord', ubicacion='Aysén', produccion=2300}
+CentroCultivo{nombre='BlueSalmon', ubicacion='Punta Arenas', produccion=1800}
+CentroCultivo{nombre='PacificFarm', ubicacion='Valdivia', produccion=700}
+
+=== CENTROS CON PRODUCCIÓN > 1000 ===
+CentroCultivo{nombre='Centro Norte', ubicacion='Puerto Montt', produccion=1500}
+CentroCultivo{nombre='AquaFjord', ubicacion='Aysén', produccion=2300}
+CentroCultivo{nombre='BlueSalmon', ubicacion='Punta Arenas', produccion=1800}
+```
+📦 Repositorio y entrega
+
+Repositorio GitHub:
+https://github.com/komattose/salmontt-colecciones
+
+Fecha de entrega: 17/11/2025
 
 📘 Duoc UC | Escuela de Informática y Telecomunicaciones
-
-Semana: Jerarquía de Clases y Herencia
-Autor: Martín Belaunde
