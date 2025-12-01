@@ -83,5 +83,5 @@ Planta de Proceso {nombre='Planta Norte', comuna='Calbuco', capacidadProceso=150
 
 === Fin de la demostración ===
 📘 Duoc UC | Escuela de Informática y Telecomunicaciones
-Semana: Jerarquía de Clases y Herencia
-Autor: Martín Belaunde
+- Semana: Jerarquía de Clases y Herencia
+- Autor: Martín Belaunde
