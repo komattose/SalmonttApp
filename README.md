@@ -82,6 +82,7 @@ Planta de Proceso {nombre='Planta Sur', comuna='Puerto Varas', capacidadProceso=
 Planta de Proceso {nombre='Planta Norte', comuna='Calbuco', capacidadProceso=150 toneladas/día}
 
 === Fin de la demostración ===
+
 📘 Duoc UC | Escuela de Informática y Telecomunicaciones
 - Semana: Jerarquía de Clases y Herencia
 - Autor: Martín Belaunde
