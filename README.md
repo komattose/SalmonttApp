@@ -72,8 +72,6 @@ Ejecuta con el botón ▶️ o desde la consola del IDE.
 Observar la salida en consola:
 El programa debe mostrar las unidades operativas creadas por el gestor, similar a lo siguiente:
 
-text
-Copiar código
 === Unidades Operativas de Salmontt ===
 
 Centro de Cultivo {nombre='Centro Chinquihue', comuna='Puerto Montt', toneladasProduccion=850.5}
