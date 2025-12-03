@@ -17,12 +17,18 @@ public class CentroCultivo extends UnidadOperativa {
     }
 
     @Override
+    public void mostrarInformacion() {
+        System.out.println("[Centro de Cultivo] " + getNombre() + " - " + getComuna());
+        System.out.println("Producción: " + toneladasProduccion + " toneladas\n");
+    }
+
+    @Override
     public String toString() {
         return "Centro de Cultivo {" +
                 "nombre='" + getNombre() + '\'' +
                 ", comuna='" + getComuna() + '\'' +
                 ", toneladasProduccion=" + toneladasProduccion +
-                "}";
+                '}';
     }
 }
 

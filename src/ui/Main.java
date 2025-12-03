@@ -2,18 +2,17 @@ package ui;
 
 import data.GestorUnidades;
 import model.UnidadOperativa;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("=== Unidades Operativas de Salmontt ===\n");
 
-        UnidadOperativa[] unidades = GestorUnidades.crearUnidades();
+        List<UnidadOperativa> unidades = GestorUnidades.crearListaUnidades();
 
-        for (UnidadOperativa unidad : unidades) {
-            System.out.println(unidad);
-        }
+        GestorUnidades.mostrarUnidades(unidades);
 
-        System.out.println("\n=== Fin de la demostración ===");
+        System.out.println("=== Fin de la demostración ===");
     }
 }
 
