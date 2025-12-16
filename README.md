@@ -1,18 +1,19 @@
 # 🧠 Evaluación – Desarrollo Orientado a Objetos I
-### Semana Actual – Polimorfismo y Colecciones en SalmonttApp
+### Semana Actual – Interfaces, Polimorfismo y GUI en SalmonttApp
 
 ---
 
 ## 🎯 Objetivo de esta semana
 
-El objetivo de esta semana es **incorporar colecciones y aplicar polimorfismo** dentro del proyecto **SalmonttApp**, reforzando los principios de **herencia**, **abstracción**, **reutilización de código** y **organización modular**.
+El objetivo de esta semana es **ampliar el sistema SalmonttApp** incorporando nuevas entidades del dominio y una interfaz gráfica básica, reforzando los conceptos de **interfaces, herencia, polimorfismo y colecciones genéricas**.
 
-Se busca que las clases trabajen de forma polimórfica dentro de una colección, permitiendo recorrer y desplegar distintos tipos de unidades operativas de manera dinámica, **sin usar condicionales ni comprobaciones de tipo (`instanceof`)**.
+Esta etapa busca que distintas entidades (como unidades operativas, proveedores o empleados) compartan un comportamiento común, puedan ser gestionadas desde una misma colección y se visualicen mediante una interfaz gráfica sencilla.
 
-Para ello, se modelan las **unidades operativas de la empresa salmonera Salmontt**, manteniendo y extendiendo la jerarquía de clases:
-- **UnidadOperativa** (superclase abstracta)
-- **CentroCultivo** (subclase)
-- **PlantaProceso** (subclase)
+Las metas principales son:
+- Definir una **interfaz de comportamiento común** (`Registrable`).
+- Aplicar **herencia y polimorfismo** entre las clases que representan entidades del sistema.
+- Utilizar **colecciones genéricas (`ArrayList<Registrable>`)** para almacenar y recorrer los objetos.
+- Implementar una **interfaz gráfica básica (JOptionPane)** para ingresar y mostrar registros.
 
 ---
 
@@ -21,84 +22,104 @@ Para ello, se modelan las **unidades operativas de la empresa salmonera Salmontt
 ```text
 src/
 ├── model/
-│   ├── UnidadOperativa.java     # Superclase abstracta: define método mostrarInformacion()
-│   ├── CentroCultivo.java       # Subclase: sobrescribe mostrarInformacion()
-│   └── PlantaProceso.java       # Subclase: sobrescribe mostrarInformacion()
+│   ├── Registrable.java         # Interfaz común con el método mostrarResumen()
+│   ├── UnidadOperativa.java     # Clase abstracta base (nombre, comuna)
+│   ├── CentroCultivo.java       # Subclase de UnidadOperativa
+│   ├── PlantaProceso.java       # Subclase de UnidadOperativa
+│   ├── Proveedor.java           # Nueva clase que implementa Registrable
+│   └── Empleado.java            # Nueva clase que implementa Registrable
 │
 ├── data/
-│   └── GestorUnidades.java      # Crea una colección List<UnidadOperativa> y la recorre con polimorfismo
+│   └── GestorEntidades.java     # Gestiona colección ArrayList<Registrable> y aplica instanceof
 │
 └── ui/
-    └── Main.java                # Clase principal que ejecuta el programa
+    └── Main.java                # Clase principal con interfaz gráfica JOptionPane
 ```
 🧠 Descripción de las clases
-UnidadOperativa:
-Superclase abstracta que representa una unidad general con los atributos nombre y comuna.
-Define el método abstracto mostrarInformacion() para ser implementado por las subclases.
 
-CentroCultivo:
-Hereda de UnidadOperativa e implementa mostrarInformacion() mostrando el nombre, comuna y toneladas de producción.
-Representa un centro de cultivo de salmón.
+Registrable (interfaz):
+Define el método mostrarResumen() que actúa como contrato común para todas las entidades gestionables.
 
-PlantaProceso:
-Hereda de UnidadOperativa e implementa mostrarInformacion() mostrando el nombre, comuna y capacidad de procesamiento diario.
-Representa una planta de procesamiento de producto.
+UnidadOperativa (abstracta):
+Clase base para las unidades operativas, con atributos nombre y comuna.
 
-GestorUnidades:
-Utiliza una colección List<UnidadOperativa> que combina distintos tipos de unidades.
-Crea instancias de prueba y las recorre de forma polimórfica llamando a mostrarInformacion() en cada objeto.
+CentroCultivo / PlantaProceso:
+Subclases de UnidadOperativa que implementan mostrarResumen() mostrando datos específicos (producción o capacidad de proceso).
 
-Main:
-Ejecuta el programa, solicita la lista desde el gestor y muestra la información por consola.
+Proveedor:
+Clase independiente que implementa Registrable y representa proveedores externos.
+Muestra su información mediante mostrarResumen().
+
+Empleado:
+Clase independiente que implementa Registrable y representa colaboradores internos.
+Muestra su cargo e identificación mediante mostrarResumen().
+
+GestorEntidades:
+Crea una colección ArrayList<Registrable> donde se almacenan distintos tipos de objetos (centros, plantas, proveedores y empleados).
+Utiliza instanceof para aplicar lógica específica según el tipo de entidad.
+Incluye métodos para mostrar, agregar y recorrer registros.
+
+Main (GUI):
+Implementa una interfaz básica mediante JOptionPane.
+Permite:
+
+    Mostrar entidades registradas.
+
+    Agregar nuevos proveedores o empleados.
+
+    Cerrar la aplicación desde un menú simple.
 
 ⚙️ Instrucciones para ejecutar el programa
-Clonar el repositorio desde GitHub:
 
-bash
-Copiar código
-git clone https://github.com/komattose/SalmonttApp.git
-Abrir el proyecto en IntelliJ IDEA (o cualquier otro IDE compatible con Java).
+    Clonar el repositorio desde GitHub:
 
-Verificar la estructura de paquetes:
+    git clone https://github.com/komattose/SalmonttApp.git
 
-model/ → contiene la jerarquía de clases.
+    Abrir el proyecto en IntelliJ IDEA (o cualquier otro IDE compatible con Java).
 
-data/ → contiene la clase GestorUnidades.
+    Verificar la estructura de paquetes:
 
-ui/ → contiene la clase Main.
+        model/ → contiene las clases del dominio y la interfaz Registrable.
 
-Ejecutar el programa:
+        data/ → contiene la clase GestorEntidades.
 
-Abre la clase Main.java en el paquete ui.
+        ui/ → contiene la clase Main con la interfaz gráfica.
 
-Ejecuta con el botón ▶️ o desde la consola del IDE.
+    Ejecutar el programa:
 
-Observar la salida en consola:
-El programa mostrará las unidades operativas creadas dentro de la colección, desplegando la información mediante el método mostrarInformacion() de forma polimórfica.
+        Abre la clase Main.java en el paquete ui.
+
+        Ejecuta con el botón ▶️ o desde la consola del IDE.
+
+    Interacción esperada:
+
+        Al iniciar, se muestra un menú con opciones para visualizar entidades, agregar proveedores o empleados, y salir del sistema.
+
+        Los datos se muestran en consola o mediante cuadros de diálogo (JOptionPane).
 
 💻 Ejemplo de salida en consola
-text
-Copiar código
-=== Unidades Operativas de Salmontt ===
 
-[Centro de Cultivo] Centro Chinquihue - Puerto Montt  
-Producción: 850.5 toneladas  
+=== ENTIDADES REGISTRADAS ===
 
-[Centro de Cultivo] Centro Quellón Norte - Quellón  
-Producción: 920.7 toneladas  
+[Centro de Cultivo] Centro Chinquihue - Puerto Montt
+Producción: 850.5 toneladas
 
-[Planta de Proceso] Planta Sur - Puerto Varas  
-Capacidad: 120 toneladas/día  
+[Planta de Proceso] Planta Sur - Puerto Varas
+Capacidad: 120 toneladas/día
 
-[Planta de Proceso] Planta Norte - Calbuco  
-Capacidad: 150 toneladas/día  
+[Proveedor] AquaFeed Ltda - Insumo: Alimentos Balanceados
+→ Este registro corresponde a un proveedor externo.
 
-[Planta de Proceso] Planta Industrial Patagonia - Puerto Montt  
-Capacidad: 200 toneladas/día  
+[Empleado] María González - Cargo: Supervisora de Planta
+→ Este registro corresponde a un colaborador interno.
+
+[Empleado] Carlos Muñoz - Cargo: Gerente de Producción
+→ Este registro corresponde a un colaborador interno.
 
 === Fin de la demostración ===
+
 📘 Duoc UC | Escuela de Informática y Telecomunicaciones
 
-Semana: Polimorfismo y Colecciones
+    Semana: Interfaces, Polimorfismo y GUI
 
-Autor: Martín Belaunde
+    Autor: Martín Belaunde
