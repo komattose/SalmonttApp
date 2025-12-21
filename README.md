@@ -124,6 +124,7 @@ Interfaces	Registrable define comportamiento común (mostrarDatos()).
 Colecciones	Uso de ArrayList<Registrable> para gestionar entidades de forma genérica.
 Archivos externos	Carga de datos desde .txt con LectorArchivos.
 Validación	Comprobación de formato de RUT mediante ValidadorRut.
+
 🧩 Requisitos de Entorno
 
 JDK: 25.0.0 o superior
