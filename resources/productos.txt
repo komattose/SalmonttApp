@@ -1,0 +1,5 @@
+Salmón Premium;8500
+Salmón Congelado;6200
+Filete Ahumado;9800
+Salmón Entero Fresco;7400
+Porciones Marinadas;8900

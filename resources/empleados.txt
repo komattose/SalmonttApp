@@ -1,0 +1,5 @@
+Juan Pérez;11.111.111-1;Av. Los Salmones 123;Puerto Montt;Los Lagos;Supervisor;1200000
+María González;22.222.222-2;Calle Austral 45;Castro;Los Lagos;Jefa de Planta;1450000
+Carlos Muñoz;33.333.333-3;Ruta 5 Sur 321;Puerto Varas;Los Lagos;Operario;950000
+Valentina Soto;44.444.444-4;Camino El Tepual s/n;Puerto Montt;Los Lagos;Administrativa;890000
+Andrés Vidal;55.555.555-5;Calle Peulla 22;Frutillar;Los Lagos;Encargado de Logística;1100000
